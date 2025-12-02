@@ -23,7 +23,6 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
         }}
       />
-      {/* Explore tab removed per request */}
     </Tabs>
   );
 }
