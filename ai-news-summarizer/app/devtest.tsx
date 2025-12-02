@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { View, Text, ScrollView, StyleSheet, TouchableOpacity, ActivityIndicator, TextInput } from 'react-native';
+import { View, Text, ScrollView, StyleSheet, TouchableOpacity, ActivityIndicator, TextInput, Platform } from 'react-native';
 import { fetchNews } from '../src/services/newsAPI';
 import { summarizeArticle } from '../src/services/geminiService';
 
@@ -107,7 +107,7 @@ async function selectAndSummarize(article: Article) {
   }
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={[{ flex: 1 }, Platform.OS === 'web' ? { backgroundColor: '#ffffff' } : null]}>
       <ScrollView ref={mainScrollRef} contentContainerStyle={styles.container}>
       <Text style={styles.title}>{selectedCategory ? selectedCategory.charAt(0).toUpperCase() + selectedCategory.slice(1) : 'Dev Test'}</Text>
 
@@ -269,7 +269,7 @@ const styles = StyleSheet.create({
   clearButtonText: { color: '#333', fontSize: 14 },
   searchContainer: { flexDirection: 'row', alignItems: 'center', marginBottom: 12 },
   searchInput: { flex: 1, borderWidth: 1, borderColor: '#e6e6e6', borderRadius: 8, paddingHorizontal: 12, paddingVertical: 8, marginRight: 8, backgroundColor: '#fff' },
-  searchButton: { padding: 10, backgroundColor: '#007AFF', borderRadius: 8 },
+  searchButton: { padding: 10, backgroundColor: '#0876ebff', borderRadius: 8 },
   searchButtonText: { color: '#fff', fontSize: 16 },
   searchClearText: { color: '#666', fontSize: 14 },
   searchInputWrapper: { flex: 1, position: 'relative' },
